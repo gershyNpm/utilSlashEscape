@@ -1,5 +1,5 @@
 import { assertEqual, testRunner } from '../build/utils.test.ts';
-import './main.ts';
+import slashEscape from './main.ts';
 
 // Type testing
 (async () => {
@@ -14,9 +14,12 @@ import './main.ts';
 
 testRunner([
   
-  { name: 'not implemented', fn: async () => {
+  { name: 'basic', fn: async () => {
     
-    // TODO: Implement!
+    assertEqual(
+      slashEscape(`i said 'hey' and "he" said '''hoooo''' back to me`, `'"`),
+      `i said #'hey#' and #"he#" said #'#'#'hoooo#'#'#' back to me`.replaceAll('#', '\\')
+    );
     
   }}
   
