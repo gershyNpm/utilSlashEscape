@@ -9,6 +9,7 @@ import slashEscape from './main.ts';
   type Tests = {
     1: Enforce<{ x: 'y' }, { x: 'y' }>,
   };
+  if (0) ((v?: Tests) => void 0)();
   
 })();
 
@@ -17,8 +18,8 @@ testRunner([
   { name: 'basic', fn: async () => {
     
     assertEqual(
-      slashEscape(`i said 'hey' and "he" said '''hoooo''' back to me`, `'"`),
-      `i said #'hey#' and #"he#" said #'#'#'hoooo#'#'#' back to me`.replaceAll('#', '\\')
+      slashEscape(`i said 'hey' and "he" sa\\id '''hoooo''' back to me`, `'"`),
+      `i said #'hey#' and #"he#" sa##id #'#'#'hoooo#'#'#' back to me`.replaceAll('#', '\\')
     );
     
   }}
