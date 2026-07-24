@@ -18,8 +18,8 @@ testRunner([
   { name: 'basic', fn: async () => {
     
     assertEqual(
-      slashEscape(`i said 'hey' and "he" sa\\id '''hoooo''' back to me`, `'"`),
-      `i said #'hey#' and #"he#" sa##id #'#'#'hoooo#'#'#' back to me`.replaceAll('#', '\\')
+      slashEscape(`i said 'hey' and "he" sa#id #'''hoooo''' back to me`.replaceAll('#', '\\'), `'"`),
+      `i said #'hey#' and #"he#" sa##id ###'#'#'hoooo#'#'#' back to me`.replaceAll('#', '\\')
     );
     
   }}
